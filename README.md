@@ -1,6 +1,7 @@
 wpplugin_phonebook
 ==================
 
+Date: 23 November 2014
 This PhoneBook plugin helps to manage the phone book easily over the WordPress blog.
 
 The phonebook database have three columns:

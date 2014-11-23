@@ -2,7 +2,7 @@
 /*
 Plugin Name: Phone Book
 Plugin URI: http://www.oscarperez.es/wordpress-plugins/opg_phonebook.zip
-Description: This PhoneBook plugin helps to manage the phone book easily over the WordPress blog. 
+Description: This PhoneBook plugin helps to manage the phone book easily over the WordPress blog. This phonebook have three fields: idPhone, name and phone
 Author: Oskar Pérez
 Author URI: http://www.oscarperez.es/
 Version: 1.0
@@ -150,10 +150,10 @@ License: GPLv2
             <table class="wp-list-table widefat manage-column" style="width:95%">            
              <thead>
                 <tr>
-                    <th scope="col" id="description" class="manage-column" style=""><span>Name</span></a></th>
-                    <th scope="col" id="description" class="manage-column" style=""><span>Phone</span></a></th>
-                    <th scope="col" id="description" class="manage-column" style=""><span>Edit</span></a></th>
-                    <th scope="col" id="description" class="manage-column" style=""><span>Delete</span></a></th>
+                    <th scope="col" class="manage-column" style=""><span>Name</span></a></th>
+                    <th scope="col" class="manage-column" style=""><span>Phone</span></a></th>
+                    <th scope="col" class="manage-column" style=""><span>Edit</span></a></th>
+                    <th scope="col" class="manage-column" style=""><span>Delete</span></a></th>
                 </tr>
              </thead>
 

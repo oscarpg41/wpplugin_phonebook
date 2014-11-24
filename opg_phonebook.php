@@ -146,6 +146,7 @@ License: GPLv2
         $phonebook = $wpdb->get_results( 'SELECT idPhone, name, phone FROM ' . $wpdb->prefix . 'opg_plugin_phonebook ORDER BY name' );
         if (count($phonebook)>0){            
 ?>
+            <hr style="width:94%; margin:20px 0">
             <h2>Phone Book</h2>
             <table class="wp-list-table widefat manage-column" style="width:95%">            
              <thead>

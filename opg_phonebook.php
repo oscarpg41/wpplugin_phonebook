@@ -146,7 +146,7 @@ License: GPLv2
         $phonebook = $wpdb->get_results( 'SELECT idPhone, name, phone FROM ' . $wpdb->prefix . 'opg_plugin_phonebook ORDER BY name' );
         if (count($phonebook)>0){            
 ?>
-            <hr style="width:94%; margin:20px 0">
+	        <hr style="width:94%; margin:20px 0">	
             <h2>Phone Book</h2>
             <table class="wp-list-table widefat manage-column" style="width:95%">            
              <thead>
@@ -157,23 +157,26 @@ License: GPLv2
                     <th scope="col" class="manage-column" style=""><span>Delete</span></a></th>
                 </tr>
              </thead>
+             <tbody>
 
 <?php
+            $cont = 0;
             foreach ( $phonebook as $phone ) {
+                $cont++;
+                if ($cont%2 ==1){ echo '<tr class="alternate">'; }
+                else{ echo '<tr>'; }
 ?>
-             <tbody>
-                <tr>
                     <td><?php echo( $phone->name ); ?></td>
                     <td><?php echo( $phone->phone ); ?></td>
                     <td><a href="admin.php?page=plugin_opg_phonebook&amp;task=edit_phone&amp;id=<?php echo( $phone->idPhone ); ?>">Edit</a></td>
                     <td><a href="admin.php?page=plugin_opg_phonebook&amp;task=remove_phone&amp;id=<?php echo( $phone->idPhone ); ?>">Delete</a></td>                    
                 </tr>
-             </tbody>
 <?php                
             }
         }
 
 ?>
+             </tbody>
             </table>
 <?php
         return true;

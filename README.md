@@ -42,5 +42,4 @@ You're done!
 
 == Changelog ==
 
-= 1.0.0 =
-*Release Date - 23rd November, 2014
+= 1.0.0 = *Release Date - 23rd November, 2014

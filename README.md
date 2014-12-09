@@ -16,6 +16,8 @@ License: GPLv2 or later
 
 This PhoneBook plugin helps to manage the phone book easily over the WordPress blog.
 
+Language: Spanish
+
 Plugin phoneBook to manage a phone book.
 
 The phone book have three fields: idPhone, name and phone

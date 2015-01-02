@@ -170,7 +170,7 @@ Releases:
                     <td><?php echo( $phone->name ); ?></td>
                     <td><?php echo( $phone->phone ); ?></td>
                     <td><a href="admin.php?page=opg_phonebook&amp;task=edit_phone&amp;id=<?php echo( $phone->idPhone ); ?>"><img src="<?php echo WP_PLUGIN_URL.'/opg_phonebook/img/modificar.png'?>" alt="Modificar"></a></td>                    
-                    <td><a href="javascript:borrar(<?php echo( $phone->idPhone );?>)"><img src="<?php echo WP_PLUGIN_URL.'/opg_phonebook/img/papelera.png'?>" alt="Borrar"></a></td>                    
+                    <td><a href="javascript:borrarPhone(<?php echo( $phone->idPhone );?>)"><img src="<?php echo WP_PLUGIN_URL.'/opg_phonebook/img/papelera.png'?>" alt="Borrar"></a></td>                    
                 </tr>
 <?php                
             }

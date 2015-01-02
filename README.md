@@ -22,10 +22,14 @@ Plugin phoneBook to manage a phone book.
 
 The phone book have three fields: idPhone, name and phone
 
-The phonebook database have three columns:
+The opg_plugin_phonebook database have three columns:
+
 - `idPhone` INT( 11 ) , 
+
 - `name` VARCHAR( 255 ) NOT NULL , 
+
 - `phone` VARCHAR( 40 ) NOT NULL )';
+
 
 The plugin contains four files:
 - opg_phonebook.php

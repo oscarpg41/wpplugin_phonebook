@@ -13,8 +13,6 @@ Releases:
 1.1 En el listado de teléfonos cambiamos los literales 'Modificar' y 'Borrar' por dos imagenes.
     Antes de eliminar el registro, se pide una confirmación mediante un confirm de JavaScript
 */
-
-*/
 ?>
 <?php
 

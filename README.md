@@ -27,8 +27,11 @@ The phonebook database have three columns:
 - `name` VARCHAR( 255 ) NOT NULL , 
 - `phone` VARCHAR( 40 ) NOT NULL )';
 
-The plugin contains one files:
+The plugin contains four files:
 - opg_phonebook.php
+- opg_phonebook.js
+- img/modificar.png
+- img/papelera.png
 
 
 == Installation ==

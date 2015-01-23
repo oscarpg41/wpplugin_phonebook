@@ -7,17 +7,15 @@ Author: Oskar Pérez
 Author URI: http://www.oscarperez.es/
 Version: 1.1
 License: GPLv2
-
-Releases:
-1.0 Versión inicial
-1.1 En el listado de teléfonos cambiamos los literales 'Modificar' y 'Borrar' por dos imagenes.
-    Antes de eliminar el registro, se pide una confirmación mediante un confirm de JavaScript
 */
 ?>
 <?php
 
     //registramos el fichero js que necesitamos
-    wp_register_script('myPhoneBookScript', WP_PLUGIN_URL . '/opg_phonebook/opg_phonebook.js');
+    //wp_register_script('myPhoneBookScript', WP_PLUGIN_URL . '/opg_phonebook/opg_phonebook.js');
+    wp_register_script('myPhoneBookScript', WP_PLUGIN_URL .'/opg_phonebook/opg_phonebook.js', array('jquery','media-upload','thickbox'));
+    wp_enqueue_script('myPhoneBookScript');    
+
 
     /* Con este código, se crea una linea en el menú de Administración */
     function opg_show_menu_phonebook(){
@@ -40,8 +38,8 @@ Releases:
 
         $sql = 'CREATE TABLE IF NOT EXISTS `' . $wpdb->prefix . 'opg_plugin_phonebook` 
             ( `idPhone` INT( 11 ) NOT NULL AUTO_INCREMENT PRIMARY KEY , 
-              `name` VARCHAR( 255 ) NOT NULL , 
-              `phone` VARCHAR( 40 ) NOT NULL )';
+              `name` VARCHAR( 255 ) COLLATE utf8_spanish_ci NOT NULL, 
+              `phone` VARCHAR( 40 ) NOT NULL ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci';
         $wpdb->query($sql);
     }
 
@@ -149,7 +147,7 @@ Releases:
 ?>
 	        <hr style="width:94%; margin:20px 0">	
             <h2>Directorio telefónico</h2>
-            <table class="wp-list-table widefat manage-column" style="width:95%">            
+            <table class="wp-list-table widefat manage-column" style="width:98%">            
              <thead>
                 <tr>
                     <th scope="col" class="manage-column"<span>Nombre</span></th>
@@ -169,13 +167,12 @@ Releases:
 ?>
                     <td><?php echo( $phone->name ); ?></td>
                     <td><?php echo( $phone->phone ); ?></td>
-                    <td><a href="admin.php?page=opg_phonebook&amp;task=edit_phone&amp;id=<?php echo( $phone->idPhone ); ?>"><img src="<?php echo WP_PLUGIN_URL.'/opg_phonebook/img/modificar.png'?>" alt="Modificar"></a></td>                    
-                    <td><a href="javascript:borrarPhone(<?php echo( $phone->idPhone );?>)"><img src="<?php echo WP_PLUGIN_URL.'/opg_phonebook/img/papelera.png'?>" alt="Borrar"></a></td>                    
+                    <td><a href="admin.php?page=opg_phonebook&amp;task=edit_phone&amp;id=<?php echo( $phone->idPhone ); ?>"><img src="<?php echo WP_PLUGIN_URL.'/opg_phonebook/img/modificar.png'?>" alt="Modificar"></a></td>
+                    <td><a href="#"><img src="<?php echo WP_PLUGIN_URL.'/opg_aside/img/papelera.png'?>" alt="Borrar" id="<?php echo( $phone->idPhone ); ?>" class="btnDeletePhone"></a></td>
                 </tr>
 <?php                
             }
         }
-
 ?>
              </tbody>
             </table>
@@ -195,8 +192,7 @@ Releases:
         $valueInputName  = "";
         $valueInputId    = "";
 
-	    echo("<div class='wrap'><h2>Añadir un nuevo teléfono</h2></div>"); 
-
+	    
     	if(isset($_POST['action']) && $_POST['action'] == 'salvaropciones'){
 
             //si el input idPhone (hidden) está vacio, se trata de un nuevo registro
@@ -223,6 +219,7 @@ Releases:
 
             switch ($task) {
                 case 'edit_phone':
+                    echo("<div class='wrap'><h2>Modificar información del teléfono</h2></div>"); 
                     $row = opg_plugin_phonebook_getId($id);
                     $valueInputPhone = $row->phone;
                     $valueInputName  = $row->name;
@@ -232,6 +229,7 @@ Releases:
                     opg_phonebook_remove($id);
                     break;
                 default:
+                    echo("<div class='wrap'><h2>Añadir un nuevo teléfono</h2></div>"); 
                     break;
             }
         }

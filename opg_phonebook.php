@@ -168,11 +168,7 @@ License: GPLv2
                     <td><?php echo( $phone->name ); ?></td>
                     <td><?php echo( $phone->phone ); ?></td>
                     <td><a href="admin.php?page=opg_phonebook&amp;task=edit_phone&amp;id=<?php echo( $phone->idPhone ); ?>"><img src="<?php echo WP_PLUGIN_URL.'/opg_phonebook/img/modificar.png'?>" alt="Modificar"></a></td>
-<<<<<<< HEAD
                     <td><a href="#"><img src="<?php echo WP_PLUGIN_URL.'/opg_phonebook/img/papelera.png'?>" alt="Borrar" id="<?php echo( $phone->idPhone ); ?>" class="btnDeletePhone"></a></td>
-=======
-                    <td><a href="#"><img src="<?php echo WP_PLUGIN_URL.'/opg_aside/img/papelera.png'?>" alt="Borrar" id="<?php echo( $phone->idPhone ); ?>" class="btnDeletePhone"></a></td>
->>>>>>> 3a46e10b44e7acd5d50616ee0dcbb9fccb3fb34f
                 </tr>
 <?php                
             }

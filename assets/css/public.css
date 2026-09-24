@@ -1,0 +1,60 @@
+.pb-list {
+	list-style: none;
+	margin: 1em 0;
+	padding: 0;
+	display: grid;
+	grid-template-columns: repeat( var( --pb-columnas, 1 ), 1fr );
+	gap: 10px;
+}
+
+.pb-item {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 12px;
+	padding: 10px 14px;
+	border: 1px solid #e2e2e2;
+	border-radius: 6px;
+	background: #fff;
+}
+
+.pb-name {
+	font-weight: 600;
+}
+
+.pb-numbers {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 4px;
+	text-align: left;
+}
+
+.pb-phone {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	white-space: nowrap;
+	color: #2271b1;
+	text-decoration: none;
+}
+
+.pb-phone::before {
+	content: "\260E"; /* ☎ */
+}
+
+a.pb-phone:hover,
+a.pb-phone:focus {
+	text-decoration: underline;
+}
+
+.pb-empty {
+	font-style: italic;
+	opacity: .8;
+}
+
+@media ( max-width: 600px ) {
+	.pb-list {
+		grid-template-columns: 1fr;
+	}
+}
